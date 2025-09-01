@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Creative Portfolio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Make the body take full height and use flex layout */
+    html, body {
+      height: 100%;
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      font-family: "Segoe UI", sans-serif;
+      background: #f7f8fa;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 1rem;
+      text-align: center;
+    }
+
+    header h1 {
+      margin-bottom: 0.5rem;
+    }
+
+    nav button {
+      background: #ff6600;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin: 0.2rem;
+      border-radius: 5px;
+      cursor: pointer;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    nav button:hover {
+      background: #e05500;
+    }
+
+    main {
+      flex: 1; /* Take up all available space */
+      padding: 2rem;
+    }
+
+    .portfolio-section {
+      display: none;
+    }
+
+    .portfolio-section.active {
+      display: block;
+      animation: fadeIn 0.5s ease-in;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .card img {
+      max-width: 100%;
+      border-radius: 8px;
+    }
+
+    audio {
+      margin-top: 0.5rem;
+      width: 100%;
+    }
+
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>My Creative Portfolio</h1>
+    <nav>
+      <button onclick="showSection('art')">Art</button>
+      <button onclick="showSection('music')">Music</button>
+      <button onclick="showSection('writing')">Writing</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Art Section -->
+    <section id="art" class="portfolio-section active">
+      <h2>🎨 Artworks</h2>
+      <div class="grid">
+        <div class="card">
+          <img src="https://picsum.photos/300/200?random=1" alt="Artwork 1">
+          <h3>Sunset Vibes</h3>
+          <p>A colorful digital painting of a sunset.</p>
+        </div>
+        <div class="card">
+          <img src="https://picsum.photos/300/200?random=2" alt="Artwork 2">
+          <h3>City Sketch</h3>
+          <p>Black and white urban illustration.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Music Section -->
+    <section id="music" class="portfolio-section">
+      <h2>🎵 Music</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Chill Beat</h3>
+          <p>Lo-fi style instrumental.</p>
+          <audio controls>
+            <source src="sample.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+        <div class="card">
+          <h3>Acoustic Jam</h3>
+          <p>Soft guitar track for relaxation.</p>
+          <audio controls>
+            <source src="sample.mp3" type="audio/mpeg">
+          </audio>
+        </div>
+      </div>
+    </section>
+
+    <!-- Writing Section -->
+    <section id="writing" class="portfolio-section">
+      <h2>✍ Writing</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Poem: Rising Dawn</h3>
+          <p>
+            The dawn unfolds with gentle light,<br>
+            Painting skies in colors bright.<br>
+            A promise whispered in the air,<br>
+            Of new beginnings everywhere.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Short Story: The Silent Street</h3>
+          <p>
+            On the quietest street of the old town, a single lantern flickered.  
+            Nobody knew who lit it every night, but its glow guided lost wanderers home…
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 My Creative Portfolio</p>
+  </footer>
+
+  <script>
+    function showSection(sectionId) {
+      const sections = document.querySelectorAll(".portfolio-section");
+      sections.forEach(sec => sec.classList.remove("active"));
+      document.getElementById(sectionId).classList.add("active");
+    }
+  </script>
+</body>
+</html>
